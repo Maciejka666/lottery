@@ -6,8 +6,6 @@ import { cookieToInitialState } from 'wagmi'
 import { config } from '../config' // config z wagmi, a nie z rainbow
 import "@rainbow-me/rainbowkit/styles.css";
 
-import {Approve} from './components/approve'
-
 import "./globals.css";
 
 const geistSans = localFont({

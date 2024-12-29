@@ -1,12 +1,14 @@
+
+
 'use client'
 
 import * as React from 'react'
-import { useState, useEffect} from "react";
+import { useEffect} from "react";
 import { useWriteContract,useAccount, useReadContracts} from 'wagmi'
-import { useBlockNumber, useReadContract } from 'wagmi'
+import { useBlockNumber} from 'wagmi'
 import { type BaseError, useWaitForTransactionReceipt } from 'wagmi' 
 
-import { parseEther,formatEther } from 'viem' 
+import { parseEther} from 'viem' 
 import { abi } from '.././utils//lotteryAbi'
 
 const lotteryAddress = '0xAB2a84Ba4f8D0FEE7968a32cD3a6f98FfcBF6559' 
@@ -32,7 +34,7 @@ export function Lottery() {
 
   const { 
     data:readData,
-    error: readError,
+    //error: readError,
     isPending: readIsPending,
     refetch
   } = useReadContracts({ 
@@ -80,7 +82,11 @@ return (
         ) : (
           <>
             <p className="text-gray-700 text-center mb-4">
-              Tickets Owned: <span className="font-bold">{!readIsPending && <div> {readData[0].result} </div>}</span>
+              Tickets Owned: <span className="font-bold">{
+               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+               // @ts-ignore 
+              !readIsPending && <div> {readData[0].result}</div>
+              }</span>
             </p>
             <button
               onClick={buyTicket}

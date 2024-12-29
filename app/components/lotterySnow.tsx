@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useWriteContract, useAccount, useReadContracts } from 'wagmi'
 import { useBlockNumber } from 'wagmi'
 import { type BaseError, useWaitForTransactionReceipt } from 'wagmi' 
@@ -27,7 +27,7 @@ export function Lottery() {
 
   const { 
     data: readData,
-    error: readError,
+    //error: readError,
     isPending: readIsPending,
     refetch
   } = useReadContracts({ 
@@ -74,7 +74,10 @@ export function Lottery() {
         ) : (
           <>
             <p className="text-gray-700 text-center mb-4">
-              Tickets Owned: <span className="font-bold text-green-600">{!readIsPending && readData?.[0]?.result}</span>
+              Tickets Owned: <span className="font-bold text-green-600"> {
+               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+               // @ts-ignore 
+                !readIsPending && <div> {readData[0].result}</div>}</span>
             </p>
             <button
               onClick={buyTicket}

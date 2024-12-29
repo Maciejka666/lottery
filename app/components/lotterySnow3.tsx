@@ -27,7 +27,7 @@ export function Lottery() {
 
   const { 
     data: readData,
-    error: readError,
+    //error: readError,
     isPending: readIsPending,
     refetch
   } = useReadContracts({ 
@@ -81,7 +81,7 @@ export function Lottery() {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (seconds:any) => {
+  const formatTime = (seconds:number) => {
     const days = Math.floor(seconds / (3600 * 24));
     const hours = Math.floor((seconds % (3600 * 24)) / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -130,10 +130,16 @@ export function Lottery() {
               {timeLeft > 0 ? formatTime(timeLeft) : "Lotteria zakończona"}</div></span>
             </p>
             <p className="text-gray-700 text-center mb-4">             
-              Contract balance: <span className="font-bold text-green-600">{!readIsPending && formatEther(readData[3].result)}ETH</span>
+              Contract balance: <span className="font-bold text-green-600">{
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+               // @ts-ignore 
+              !readIsPending && formatEther(readData[3].result)}ETH</span>
             </p>
             <p className="text-gray-700 text-center mb-4">             
-              Tickets Owned: <span className="font-bold text-green-600">{!readIsPending && readData[0].result}</span>
+              Tickets Owned: <span className="font-bold text-green-600">{
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+               // @ts-ignore 
+              !readIsPending && <div>{readData[0].result}</div>}</span>
             </p>
             <button
               onClick={buyTicket}
