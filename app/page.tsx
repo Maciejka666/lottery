@@ -1,6 +1,6 @@
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { Lottery } from "./components/lotterySnow3";
+import { Lottery } from "./components/lotterySnow5";
 
 export default function Home() {
   return (
