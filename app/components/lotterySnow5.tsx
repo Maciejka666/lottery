@@ -79,7 +79,7 @@ export function Lottery() {
   }, [readData]);
 
   useEffect(() => {
-    if (readData?.[0]?.result) {
+    if (readData?.[3]?.result) {
         setBalance(Number(readData[3].result));
     }
   }, [readData]);
