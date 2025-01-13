@@ -230,6 +230,7 @@ export function Lottery() {
               {isMusicPlaying ? 'Pause Music' : 'Play Music'}
             </button>
             <button
+              disabled = {timeLeft > 0}
               onClick={() => pickWinner()}
               className={`w-full bg-green-500 text-white py-2 mt-4 rounded hover:bg-green-600  ${timeLeft > 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'} shadow-md transition-transform transform hover:scale-105`}
             >
