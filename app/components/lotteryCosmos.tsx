@@ -255,23 +255,6 @@ const styles = `
   }
 `;
 
-const styles1 = `
-  @keyframes fall {
-    0% {
-      transform: translateY(-100vh) translateX(0);
-    }
-    100% {
-      transform: translateY(100vh) translateX(10px);
-    }
-  }
-
-  .animate-fall {
-    position: absolute;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`;
 
 if (typeof document !== 'undefined') {
   const styleSheet = document.createElement('style');
