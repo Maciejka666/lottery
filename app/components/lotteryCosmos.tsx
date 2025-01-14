@@ -158,34 +158,21 @@ export function Lottery() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-indigo-900 flex items-center justify-center relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        {/* Migoczące gwiazdy */}
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute top-0 bg-white rounded-full opacity-75 animate-twinkle`}
-            style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 5 + 2}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          ></div>
-        ))}
+       
         {/* Spadające gwiazdy */}
-        {[...Array(10)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={`falling-${i}`}
             className="animate-fall"
             style={{
-              width: `${Math.random() * 3 + 2}px`,
-              height: `${Math.random() * 2 + 1}px`,
+              width: `${Math.random() * 3 + 5}px`,
+              height: `${Math.random() * 2 + 4}px`,
               backgroundColor: 'white',
               borderRadius: '50%',
               top: `${Math.random() * -100}vh`,
               left: `${Math.random() * 100}%`,
               animationDuration: `${Math.random() * 2 + 1}s`,
-              animationDelay: `${Math.random() * 3}s`,
+              animationDelay: `${Math.random() * 1}s`,
             }}
           ></div>
         ))}
@@ -264,6 +251,24 @@ const styles = `
     position: absolute;
     animation-name: fall, twinkle;
     animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite;
+  }
+`;
+
+const styles1 = `
+  @keyframes fall {
+    0% {
+      transform: translateY(-100vh) translateX(0);
+    }
+    100% {
+      transform: translateY(100vh) translateX(10px);
+    }
+  }
+
+  .animate-fall {
+    position: absolute;
+    animation-name: fall;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 `;
